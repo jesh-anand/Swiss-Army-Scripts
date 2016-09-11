@@ -1,0 +1,19 @@
+#!/bin/sh
+# A script to help provisioning/setting up Weblogic resources
+# @author Muhammad Ichsan <ichsan.ichsan@bt.com>
+#
+# Sample usage:
+#   ./create-jms-resources -l t3://10.54.132.34:61000 -u weblogic -p nmdbcit34 resources.properties
+#
+WLS_HOME=/software/bea/wls/
+
+wlst_module=`find $WLS_HOME -name wlstModule.py`
+wlst=`find $WLS_HOME -name wlst.sh`
+
+if [ "$wlst_module" = "" ]; then
+  echo "Couldn't find wlstModule.py on your machine. Is the weblogic installed?"
+  exit 1
+fi
+
+cp "$wlst_module" "include/"
+$wlst include/jms_main.py $*
