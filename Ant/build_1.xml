@@ -1,0 +1,53 @@
+<project name="uii_staging" basedir="." default="build">
+
+	<property name="jarfile.name" value="uiistg.jar" />
+	<property name="manifest.name" value="MANIFEST.MF" />
+
+	<property name="source.dir" value="src" />
+	<property name="test.dir" value="test" />
+	<property name="library.dir" value="lib" />
+	<property name="binary.dir" value="bin" />
+	<property name="build.dir" value="build" />
+	
+	<property file="project.properties" />
+	
+	<path id="classpath">
+		<fileset dir="${library.dir}" includes="**/*.jar" />
+		<pathelement location="${binary.dir}" />
+	</path>
+
+	<target name="setup">
+		<delete file="${manifest.name}" />
+		<delete dir="${binary.dir}" />
+		<mkdir dir="${binary.dir}" />
+		<delete file="${build.dir}/*.jar" />
+		
+		<tstamp>
+			<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+		</tstamp>
+		
+		<manifest file="${manifest.name}">
+			<attribute name="Implementation-Title" value="${project.title}" />
+			<attribute name="Implementation-Version" value="${project.version} [${TODAY}]" />
+			<attribute name="Built-Date" value="${TODAY}" />
+			<attribute name="Main-Class" value="${project.mainclass}" />
+			<attribute name="Class-Path" value="config/${project.classpath}" />
+		</manifest>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${source.dir}" destdir="${binary.dir}" debug="on" debuglevel="lines,vars,source" classpathref="classpath" target="1.5"/>
+	</target>
+
+
+	<target name="package">
+		<jar destfile="${build.dir}/${jarfile.name}" basedir="${binary.dir}" excludes="**/Test*.class" manifest="${manifest.name}" />
+		<!-- copy todir="${build.dir}">
+			<fileset dir="${library.dir}"/>
+		</copy -->
+		<delete file="${manifest.name}" />
+	</target>
+
+	<target name="build" depends="setup, compile, package" />
+
+</project>
