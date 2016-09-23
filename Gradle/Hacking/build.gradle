@@ -1,0 +1,22 @@
+
+task hello
+task world
+task helloWorld
+
+helloWorld {
+	dependsOn = [ world, hello ]
+}
+
+hello {
+	doLast {
+		print "hello "
+	}
+}
+
+world {
+	// Depends on the hello task
+	dependsOn << hello
+	doLast {
+		print "world\n"
+	}
+}
