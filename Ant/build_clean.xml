@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- ====================================================================== 
+     Date: 3th Jun 2014
+     
+     Project: SVMP Staging Iventory System Build script
+     
+     Author: Edwin Liong 607980248
+     ====================================================================== -->
+
+	<project name="SVMP Staging Inventory System Build Script" default="archive" basedir=".">
+
+	<description></description>
+	<property file="build.properties"/>
+
+	<!-- ==================== Clean Target ==================================== -->
+	
+	<target name="clean" description="Delete old build and dist directories">
+		<delete dir="${dist.home}"/>
+		<delete dir="${build.home}"/>
+	</target>
+
+	<!-- ==================== Init Target ================================== -->
+	
+	<target name="init" depends="clean"  description="Create build directory">
+		<mkdir dir="${build.home}" />
+	</target>
+
+	<!-- ==================== Compile Target ================================== -->
+	
+	<target name="compile" depends="init" description="Compile Java sources">
+		<mkdir dir="${build.home}/WEB-INF/classes" />
+		<javac includeantruntime="false" srcdir="${source.home}"
+			destdir="${build.home}/WEB-INF/classes"
+			debug="${compile.debug}"
+			deprecation="${compile.deprecation}"
+			optimize="${compile.optimize}"
+			source="1.6" target="1.6">
+
+			<classpath>
+				<path>
+					<fileset dir="${lib.home}" />
+				</path>
+			</classpath>
+		</javac>
+
+	</target>
+
+	<!-- ==================== Build Target ================================== -->
+	
+	<target name="build" depends="compile" description="Copies all non Java classes to build directoy">
+		<copy todir="${build.home}">
+			<fileset dir="${webapp.home}" excludes="SVN,**/*.class,**/servlet-api.jar" />
+		</copy>
+		<copy todir="${build.home}/WEB-INF/classes">
+			<fileset dir="${source.home}" excludes="SVN,**/*.java" />
+		</copy>
+	</target>
+
+	<!-- ==================== Archive Target ================================== -->
+	
+	<target name="archive" depends="build" description="Create binary archive of all files in dist.home">
+		<mkdir dir="${dist.home}" />
+		<jar jarfile="${dist.home}/${app.name}.war" basedir="${build.home}" />
+	</target>
+		
+</project>
