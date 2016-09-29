@@ -1,4 +1,4 @@
-package org.prajesh.javabrains;
+package org.prajesh.javabrains.beans;
 
 public class Point {
 

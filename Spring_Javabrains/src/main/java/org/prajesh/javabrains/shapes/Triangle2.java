@@ -1,8 +1,10 @@
 package org.prajesh.javabrains.shapes;
 
-import org.prajesh.javabrains.Point;
+import java.awt.Shape;
 
-public class Triangle2 {
+import org.prajesh.javabrains.beans.Point;
+
+public class Triangle2 implements IShape {
 
     private Point pointA;
     private Point pointB;
