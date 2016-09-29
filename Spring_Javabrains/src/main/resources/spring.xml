@@ -1,0 +1,33 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Instantiate the corresponding class with a setter property value -->
+	<bean id="triangleWithSetter" class="org.prajesh.javabrains.Triangle">
+		<property name="type" value="Equilateral" />
+	</bean>
+
+	<!-- Instantiate the corresponding class with a constuctor argument -->
+	<bean id="triangle" class="org.prajesh.javabrains.Triangle">
+		<constructor-arg value="5" />
+		<constructor-arg value="5" />
+	</bean>
+
+	<bean id="pointZero" class="org.prajesh.javabrains.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="pointTwo" class="org.prajesh.javabrains.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="pointThree" class="org.prajesh.javabrains.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+
+</beans>
