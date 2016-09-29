@@ -1,0 +1,10 @@
+Url for the slides:
+tinyurl.com/ngslide2
+
+These are the links to the project that the instructor made:
+https://github.com/modernduck/hello-editor
+https://github.com/Pichchan9k/user-editor
+https://github.com/Pichchan9k/angular2
+https://github.com/Pichchan9k/E-Commerce-Lab1
+https://github.com/Pichchan9k/e-commerce
+https://github.com/Pichchan9k/E-Commerce-Lab2
