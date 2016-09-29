@@ -1,33 +1,51 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- Instantiate the corresponding class with a setter property value -->
-	<bean id="triangleWithSetter" class="org.prajesh.javabrains.Triangle">
-		<property name="type" value="Equilateral" />
-	</bean>
+    <!-- Instantiate the corresponding class with a setter property value -->
+    <bean id="triangleWithSetter" class="org.prajesh.javabrains.shapes.Triangle">
+        <property name="type" value="Equilateral"/>
+    </bean>
 
-	<!-- Instantiate the corresponding class with a constuctor argument -->
-	<bean id="triangle" class="org.prajesh.javabrains.Triangle">
-		<constructor-arg value="5" />
-		<constructor-arg value="5" />
-	</bean>
+    <!-- Initializing collections in Spring -->
+    <bean id="triangle3" class="org.prajesh.javabrains.shapes.Triangle3">
+        <property name="points">
+            <list>
+                <ref bean="pointZero"/>
+                <ref bean="pointThree"/>
+            </list>
+        </property>
+    </bean>
 
-	<bean id="pointZero" class="org.prajesh.javabrains.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
-	</bean>
+    <!-- Reference bean classes into their respective objects -->
+    <bean id="triangle2" class="org.prajesh.javabrains.shapes.Triangle2">
 
-	<bean id="pointTwo" class="org.prajesh.javabrains.Point">
-		<property name="x" value="-20" />
-		<property name="y" value="0" />
-	</bean>
+        <property name="pointA" ref="pointZero"/>
 
-	<bean id="pointThree" class="org.prajesh.javabrains.Point">
-		<property name="x" value="20" />
-		<property name="y" value="0" />
-	</bean>
+        <!-- Using inner bean -->
+        <property name="pointB">
+            <bean id="pointTwo" class="org.prajesh.javabrains.Point">
+                <property name="x" value="-20"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+
+        <property name="pointC" ref="pointThree"/>
+    </bean>
+
+
+    <!-- Set the values into this bean class -->
+    <bean id="pointZero" class="org.prajesh.javabrains.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+
+    <bean id="pointThree" class="org.prajesh.javabrains.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
 
 
 </beans>
