@@ -7,11 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
     public static void main(String[] args) {
-	ApplicationContext context = new ClassPathXmlApplicationContext("spring-interfaces.xml");
-	IShape circle = (IShape) context.getBean("circle");
-	circle.draw();
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-interfaces.xml");
+        IShape circle = (IShape) context.getBean("circle");
+        circle.draw();
 
-	IShape square = (IShape) context.getBean("square");
-	square.draw();
+        IShape square = (IShape) context.getBean("square");
+        square.draw();
     }
 }
