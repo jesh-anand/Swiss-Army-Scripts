@@ -1,5 +1,14 @@
 import os
 import shutil
+from logger import printInfo
+from logger import printDebug
+
+
+"""sortFiles.py: A file sorting tools based on keywords"""
+
+__author__ = "Prajesh Ananthan"
+__copyright__ = "Copyright 2016, Python"
+__license__ = "GPL"
 
 # -- To enable debug logs
 DEBUG = True
@@ -50,14 +59,6 @@ def sortFiles():
         printInfo('Done moving files!')
     except IOError as e:
         printInfo("Unable to open search directory", e)
-
-
-def printDebug(text):
-    print('DEBUG | {}'.format(text))
-
-
-def printInfo(text):
-    print('INFO | {}'.format(text))
 
 
 ################################### Main Function ##############################################
