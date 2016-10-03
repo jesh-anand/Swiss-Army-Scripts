@@ -13,3 +13,7 @@ def printDebug(text):
 
 def printInfo(text):
     print(strftime('%d/%b/%Y %H:%M:%S INFO | {}'.format(text)))
+
+
+def printWarning(text):
+    print(strftime('%d/%b/%Y %H:%M:%S WARNING | {}'.format(text)))
