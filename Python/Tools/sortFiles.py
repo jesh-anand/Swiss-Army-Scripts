@@ -3,7 +3,6 @@ import shutil
 from logger import printInfo
 from logger import printDebug
 
-
 """sortFiles.py: A file sorting tools based on keywords"""
 
 __author__ = "Prajesh Ananthan"
@@ -15,6 +14,7 @@ DEBUG = True
 # -- Insert keywords to capture
 KEYWORDS = ('maven', 'spring')
 
+# TODO: Add GUI prompt from user to insert directory entries
 # -- Insert target directory
 SEARCH_DIRECTORY = 'C:/Users/Prajesh/Swiss-Army-Scripts/Python/Tools/test/'
 
