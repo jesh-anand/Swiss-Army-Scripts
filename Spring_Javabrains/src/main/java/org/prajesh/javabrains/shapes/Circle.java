@@ -2,7 +2,10 @@ package org.prajesh.javabrains.shapes;
 
 import org.prajesh.javabrains.beans.Point;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Circle implements IShape {
 
     private Point center;
@@ -14,10 +17,13 @@ public class Circle implements IShape {
     /**
      * The annotation autowires center instance to center object reference
      * Note the naming must tally across the code in order for the "wiring" to work.
-     *
+     * 
+     * @Qualifier wires the instance from config file to this method. Refer to spring-with-annotation.xml
+     * 
      * @param center
      */
     @Autowired
+    @Qualifier("circleRelated")
     public void setCenter(Point center) {
         this.center = center;
     }

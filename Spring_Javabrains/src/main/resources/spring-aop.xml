@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean name="triangle" class="org.prajesh.javabrains.aop.shape.Triangle">
+		<property name="name" value="The triangle name" />
+	</bean>
+
+	<bean name="circle" class="org.prajesh.javabrains.aop.shape.Circle">
+		<property name="name" value="The circle name" />
+	</bean>
+
+	<!-- autowire taking place to map triangle and circle beans to this instance -->
+	<bean name="shapeService" class="org.prajesh.javabrains.aop.service.ShapeService"
+		autowire="byName" />
+
+	<!-- 1. Include the following aspect tag -->
+	<aop:aspectj-autoproxy />
+
+	<!-- 2. Include the aspect bean class -->
+	<bean name="loggingAspect" class="org.prajesh.javabrains.aop.aspect.LoggingAspect" />
+
+</beans>

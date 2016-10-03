@@ -6,9 +6,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring JavaBrains</name>
 
-
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
+		<aop.version>1.6.11</aop.version>
 	</properties>
 
 	<dependencies>
@@ -25,6 +25,32 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
+		<!-- Spring AOP + AspectJ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aop.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

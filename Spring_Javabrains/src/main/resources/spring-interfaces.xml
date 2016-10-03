@@ -6,13 +6,14 @@
 	<!-- Make sure the bean ids are mapped correctly -->
 	<!-- Make sure Circle class a setter method of variable center -->
 	<bean id="circle" class="org.prajesh.javabrains.shapes.Circle">
-		<property name="center" ref="circlePoints" />
+		<!-- <property name="center" ref="circlePoints" /> -->
 	</bean>
 
 	<bean id="square" class="org.prajesh.javabrains.shapes.Square">
 		<property name="squarePoints" ref="squarePoints" />
 	</bean>
-
+	
+	<!--  Using qualifier to map this bean to Circle class -->
 	<bean id="circlePoints" class="org.prajesh.javabrains.beans.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
@@ -22,6 +23,4 @@
 		<property name="x" value="20" />
 		<property name="y" value="20" />
 	</bean>
-
-
 </beans>

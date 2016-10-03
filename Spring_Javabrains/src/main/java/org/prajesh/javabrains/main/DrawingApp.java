@@ -1,4 +1,4 @@
-package org.prajesh.javabrains;
+package org.prajesh.javabrains.main;
 
 import org.prajesh.javabrains.shapes.Circle;
 import org.prajesh.javabrains.shapes.IShape;
