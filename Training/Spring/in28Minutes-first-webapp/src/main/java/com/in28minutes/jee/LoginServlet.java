@@ -11,32 +11,44 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	private LoginService service = new LoginService();
+    private LoginService service = new LoginService();
 
-	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-				request, response);
-	}
+    /**
+     * When user goes to link:
+     * http://localhost:8080/login.do
+     * <p>
+     * With '@WebServlet(urlPatterns = "/login.do")' annotation in this class,
+     * it is linked to the login.jsp page.
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    @Override
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
+                request, response);
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws IOException, ServletException {
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
+    @Override
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response) throws IOException, ServletException {
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
 
-		boolean isValidUser = service.validateUser(name, password);
+        boolean isValidUser = service.validateUser(name, password);
 
-		if (isValidUser) {
-			request.setAttribute("name", name);
-			request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(
-					request, response);
-		} else {
-			request.setAttribute("errorMessage", "Invalid Credentials!!");
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-					request, response);
-		}
-	}
+        if (isValidUser) {
+            request.setAttribute("name", "Prajesh Ananthan");
+            request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(
+                    request, response);
+        } else {
+            request.setAttribute("errorMessage", "Invalid Credentials!!");
+            request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
+                    request, response);
+        }
+    }
 
 }
