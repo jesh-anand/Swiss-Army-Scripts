@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.in28minutes.login.LoginService;
+
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
@@ -19,6 +21,8 @@ public class LoginServlet extends HttpServlet {
      * <p>
      * With '@WebServlet(urlPatterns = "/login.do")' annotation in this class,
      * it is linked to the login.jsp page.
+     * 
+     * This is normal way a request/respond is handled without Spring MVC into play
      *
      * @param request
      * @param response
