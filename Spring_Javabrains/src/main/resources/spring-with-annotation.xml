@@ -27,7 +27,8 @@
 		<!--<property name="center" ref="circlePoints"/> -->
 	</bean>
 
-	<bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<!-- Shorter variant of declaring Spring autowiring config -->
+	<!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />-->
+	<context:annotation-config/>
 
 </beans>
