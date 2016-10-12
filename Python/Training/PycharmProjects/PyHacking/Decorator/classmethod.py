@@ -27,11 +27,13 @@ class Employee:
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amount)
 
+    @classmethod
+    def set_raise_amt(cls, amount):
+        cls.raise_amount * amount
+
 
 emp_1 = Employee('Prajesh', 'Ananthan', 5000)
 emp_2 = Employee('Ali', 'Ahmad', 3000)
 
 # toString variant of an object
 print(emp_1.__dict__)
-
-
