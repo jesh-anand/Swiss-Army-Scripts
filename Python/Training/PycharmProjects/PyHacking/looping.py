@@ -19,3 +19,7 @@ for key, data in enumerate('prajesh'):
         print('The letter {} is on an even location of {}'.format(data, key))
     if key % 4 == 0:
         print('The letter is {}'.format(data))
+
+# To iterate over a sequence of numbers
+for i in range(5):
+    print(i)
