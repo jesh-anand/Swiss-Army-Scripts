@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+
+	<var name="loginBean" class="com.prajesh.springmvc.webflow.bean.LoginBean" />
+	
+	<view-state id="displayLoginView" view="jsp/login.jsp" model="loginBean">
+		<transition on="performLogin" to="performLoginAction" />
+	</view-state>
+
+	<action-state id="performLoginAction">
+		<evaluate expression="loginService.validateUser(loginBean)" />
+
+		<transition on="true" to="displaySuccess" />
+		<transition on="false" to="displayError" />
+
+	</action-state>
+	
+	<view-state id="displaySuccess" view="jsp/success.jsp" model="loginBean"/>
+
+	<view-state id="displayError" view="jsp/failure.jsp" />
+</flow>
