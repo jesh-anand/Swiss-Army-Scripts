@@ -12,18 +12,20 @@ __copyright__ = "Copyright 2016, Python"
 __license__ = "GPL"
 
 
-# TODO: Include a simple UI to insert a list of videos
 # TODO: To have flexible approach to download videos at all resolution
+# TODO: To download multiple videos simultanously
 def main():
     logger.printInfo("Starting Youtube downloader tool...")
 
-    _configfile = './config/youtubelinks.properties'
+    _configfile = 'C:/Users/Prajesh/Swiss-Army-Scripts/Python/Tools/config/links.properties'
 
     _path = 'videos/'
 
     _format = 'mp4'
 
     _quality = '360p'
+
+    openconfigfile(_configfile)
 
     _links = getlinksfromconfig(_configfile)
 
@@ -32,6 +34,10 @@ def main():
     downloadvideos(_links, _path, _quality, _format)
 
     logger.printInfo("Done. Videos downloaded: {}".format(len(_links)))
+
+
+def openconfigfile(configfile):
+    os.startfile(configfile)
 
 
 def getlinksfromconfig(configfile):
