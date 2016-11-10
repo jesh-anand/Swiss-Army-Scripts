@@ -11,9 +11,11 @@ __author__ = "Prajesh Ananthan"
 __copyright__ = "Copyright 2016, Python"
 __license__ = "GPL"
 
-
+# TODO: Launch a simple GUI that able pick up URL entries and download videos accordingly
 # TODO: To have flexible approach to download videos at all resolution
-# TODO: To download multiple videos simultanously
+# TODO: To download multiple videos simultaneously
+# TODO: Import pytube codebase
+
 def main():
     logger.printInfo("Starting Youtube downloader tool...")
 

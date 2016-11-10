@@ -1,6 +1,8 @@
 from tkinter import *
 
-"""A simple hack on the Grid layout with username/password form layout"""
+"""A simple hack on the Grid layout of a username/password form layout
+
+"""
 
 root = Tk()
 
