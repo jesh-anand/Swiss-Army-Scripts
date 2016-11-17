@@ -1,3 +1,4 @@
 com\in28minutes\jee\LoginServlet.class
-com\in28minutes\jee\LoginService.class
+com\in28minutes\login\LoginService.class
 com\in28minutes\springmvc\LoginController.class
+com\in28minutes\login\IService.class

@@ -5,4 +5,8 @@
 **/.classpath
 **/.project
 **/.settings/**
+<<<<<<< HEAD
+**/__pycache__
+=======
 *.iml
+>>>>>>> f1cd602ce25fb62455f79b06256daaa4ec52779d
