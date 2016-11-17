@@ -1,5 +1,0 @@
-youtube-downloader:
-1) To handle multiple resolution videos
- File "C:\Users\Prajesh\AppData\Local\Programs\Python\Python35-32\lib\site-packages\pytube\api.py", line 220, in get
-    raise DoesNotExist("No videos met this criteria.")
-pytube.exceptions.DoesNotExist: No videos met this criteria.
